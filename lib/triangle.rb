@@ -13,7 +13,7 @@ class Triangle
      def kind 
        sides = [self.side_1, self.side_2, self.side_3] 
        sides.sort!
-       if 
+       if sides 
     end
   end
     

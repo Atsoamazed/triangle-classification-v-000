@@ -13,7 +13,14 @@ class Triangle
      def kind 
        sides = [self.side_1, self.side_2, self.side_3] 
        sides.sort!
-       if sides.any! [] 
+       if sides.any? {|side| side <= 0} || sides[0] + sides[1] <= sides[2]
+      raise TriangleError
+    elsif sides.all? {|side| side == sides[0]}
+      :equilateral
+    elsif sides[1] == sides[2]
+      :isosceles
+    elsif sides.uniq == sides
+      :scalene
     end
   end
     
